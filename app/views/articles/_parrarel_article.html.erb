@@ -1,0 +1,18 @@
+
+  <div class="parrarel_article margin-vertical">
+    <div class="row">
+      <div class="col-4 parrarel_article_image">
+       <%= image_tag "articles/#{article.thumbnail_image}", style: "height: 100%; width:220px"%>
+      </div>
+      <div class="col-8 pd">
+        <div class="margin-verticle">
+         <%= link_to article_path(article) do %>
+          <h4><%= article.title %></h4>
+          <% end %>
+        </div>
+        <div class="right">
+          <%= render article.categories %>
+        </div>
+      </div>
+      </div>
+  </div>

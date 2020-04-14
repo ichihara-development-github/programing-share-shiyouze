@@ -1,0 +1,31 @@
+<div style = "height:220px">
+  <%= link_to articles_path do%>
+  <%= image_tag "childblog_top.jpg" , class: "w-100", style: "height: 220px" %>
+  <% end %>
+</div>
+
+<nav>
+
+<div class="nav-list" style = "padding:20px">
+
+  <ul class="nav list-group-horizonl left">
+    <li class="nav-item">
+      <%= link_to "ポートフォリオ",categories_path, class: "nav-link nav-content"%>
+    </li>
+  </ul>
+
+<ul class="nav list-group-horizonl right">
+  <li class="nav-item ">
+    <%= link_to "カテゴリー別",categories_path, class: "nav-link nav-content"%>
+  </li>
+  <li class="nav-item ">
+    <%= link_to articles_path, class: "nav-link nav-content" do %>
+      <span class = "fas fa-men"></span>ABOUT ME
+    <% end %>
+  </li>
+</ul>
+
+</div>
+
+
+</nav>

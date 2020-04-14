@@ -1,0 +1,20 @@
+<div class="center">
+  <div class="article-display pd margin-vertical">
+    <%= image_tag "categories/#{@category.image}",style: "height: 200px" %>
+    <h1><%= @category.name %></h1>
+    <p><%= @category.description %></p>
+
+    <div class="">
+     <%= render "shared/actions", obj: @category, action: "category" %>
+    </div>
+  </div>
+
+<h3>カテゴリー記事一覧</h3>
+
+<div class="row">
+  <% @articles.each do |article| %>
+    <%= render "articles/article", article: article %>
+  <% end %>
+</div>
+
+</div>

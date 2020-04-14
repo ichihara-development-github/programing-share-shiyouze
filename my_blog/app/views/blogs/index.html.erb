@@ -1,0 +1,15 @@
+<div class="row">
+  <%= render @blogs %>
+</div>
+
+<h3>人気記事</h3>
+<div class="row">
+  <% @relational_blogs.each do %>
+  <div class="col-3">
+    <img src="https://purchase-app-backet.s3.amazonaws.com/uploads/user-default.png" class="img-thumbnail">
+  </div>
+  <div class="col-9">
+    <p>djfiajfa</p>
+  </div>
+  <% end %>
+</div>

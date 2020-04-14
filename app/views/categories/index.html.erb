@@ -1,0 +1,7 @@
+<h1>カテゴリー別記事</h1>
+
+<div class="row">
+  <% @categories.each do |cat| %>
+    <%= render "index_category", category: cat %>
+  <% end %>
+</div>

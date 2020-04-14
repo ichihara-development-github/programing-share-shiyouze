@@ -1,0 +1,6 @@
+<% if current_user %>
+<div class="margin-vertical">
+  <%= link_to "編集", "#{obj.id}/edit", class: "btn btn-primary"%>
+  <%= link_to "削除" ,"#{obj.id}", method: :delete, data: {confirm: "削除"} %>
+</div>
+<% end %>

@@ -1,0 +1,15 @@
+<div class="col-md-4">
+  <div class="card margin-vertical">
+      <%= image_tag "articles/#{article.thumbnail_image}", style: "height: 200px"%>
+  <div class="article-content center">
+    <%= link_to article_path(article) do %>
+      <h4><%= article.title %></h4>
+    <% end %>
+    <div class="margin-vertical">
+      <%= render article.categories %><br />
+    </div>
+    <span class = "right"><%= l article.created_at, formats: :short %></span>
+  </div>
+  </div>
+
+</div>

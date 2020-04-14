@@ -1,0 +1,2698 @@
+Started GET "/" for ::1 at 2020-03-27 08:47:34 +0900
+Started GET "/" for ::1 at 2020-03-27 08:47:34 +0900
+Started GET "/" for ::1 at 2020-03-27 08:52:32 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/railties-5.1.7/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/railties-5.1.7/lib/rails/templates/rails/welcome/index.html.erb (10.3ms)
+Completed 200 OK in 1040ms (Views: 38.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-03-27 14:21:49 +0900
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.1.7) lib/active_record/migration.rb:576:in `check_pending!'
+activerecord (5.1.7) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.7) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.7) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.4) lib/puma/configuration.rb:227:in `call'
+puma (3.12.4) lib/puma/server.rb:675:in `handle_request'
+puma (3.12.4) lib/puma/server.rb:476:in `process_client'
+puma (3.12.4) lib/puma/server.rb:334:in `block in run'
+puma (3.12.4) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (8.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (37.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateBlogs (20200327000001)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "blogs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" varchar, "thumbnail_image" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200327000001"]]
+  [1m[35m (19.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCategories (20200327000054)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (30.3ms)[0m  [1m[35mCREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "blog_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_962c9e7346"
+FOREIGN KEY ("blog_id")
+  REFERENCES "blogs" ("id")
+)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX "index_categories_on_blog_id" ON "categories" ("blog_id")[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200327000054"]]
+  [1m[35m (131.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (43.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-03-27 05:22:56.738764"], ["updated_at", "2020-03-27 05:22:56.738764"]]
+  [1m[35m (41.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (4.9ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_categories_on_blog_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_categories_on_blog_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.0ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "test"], ["content", "this is test"], ["created_at", "2020-03-27 05:27:21.955911"], ["updated_at", "2020-03-27 05:27:21.955911"]]
+  [1m[35m (6.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (10.0ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "test2"], ["content", "this is test2"], ["created_at", "2020-03-27 05:27:52.959974"], ["updated_at", "2020-03-27 05:27:52.959974"]]
+  [1m[35m (14.1ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for ::1 at 2020-03-27 14:28:24 +0900
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TopController#top as HTML
+  Rendering top/top.html.erb within layouts/application
+  Rendered top/top.html.erb within layouts/application (6.9ms)
+Started GET "/" for 127.0.0.1 at 2020-03-27 14:28:28 +0900
+Processing by TopController#top as HTML
+  Rendering top/top.html.erb within layouts/application
+  Rendered top/top.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 4717ms (Views: 4649.0ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 1954ms (Views: 1938.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-27 14:33:44 +0900
+Started GET "/blogs.index" for ::1 at 2020-03-27 14:33:54 +0900
+Processing by TopController#top as HTML
+  Rendering top/top.html.erb within layouts/application
+  Rendered top/top.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 161ms (Views: 154.0ms)
+
+
+Processing by BlogsController#index as 
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered blogs/index.html.erb within layouts/application (45.4ms)
+Completed 500 Internal Server Error in 142ms
+
+
+  
+ActionView::Template::Error ('nil' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+    1: <%= render @blog %>
+  
+app/views/blogs/index.html.erb:1:in `_app_views_blogs_index_html_erb__322217938_107964340'
+Started GET "/blogs/index" for ::1 at 2020-03-27 14:34:00 +0900
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"index"}
+  Rendering blogs/show.html.erb within layouts/application
+  Rendered blogs/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 128ms (Views: 122.5ms)
+
+
+Started GET "/blogs/index" for ::1 at 2020-03-27 14:34:11 +0900
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"index"}
+  Rendering blogs/show.html.erb within layouts/application
+  Rendered blogs/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 206ms (Views: 199.4ms)
+
+
+Started GET "/blogs/index" for ::1 at 2020-03-27 14:35:59 +0900
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"index"}
+  Rendering blogs/show.html.erb within layouts/application
+  Rendered blogs/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 138ms (Views: 128.9ms)
+
+
+Started GET "/blogs/index" for ::1 at 2020-03-27 14:36:56 +0900
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"index"}
+  Rendering blogs/show.html.erb within layouts/application
+  Rendered blogs/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 217ms (Views: 206.4ms)
+
+
+Started GET "/blogs/index" for ::1 at 2020-03-27 14:39:22 +0900
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"index"}
+  Rendering blogs/show.html.erb within layouts/application
+  Rendered blogs/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 141ms (Views: 133.9ms)
+
+
+Started GET "/blogs/index" for ::1 at 2020-03-27 14:39:54 +0900
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"index"}
+  Rendering blogs/show.html.erb within layouts/application
+  Rendered blogs/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 121ms (Views: 114.3ms)
+
+
+Started GET "/blogs/index" for ::1 at 2020-03-27 14:39:59 +0900
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"index"}
+  Rendering blogs/show.html.erb within layouts/application
+  Rendered blogs/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 158ms (Views: 148.7ms)
+
+
+Started GET "/blogs/index" for ::1 at 2020-03-27 14:40:45 +0900
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"index"}
+  Rendering blogs/show.html.erb within layouts/application
+  Rendered blogs/show.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 209ms (Views: 198.6ms)
+
+
+Started GET "/blogs/index" for ::1 at 2020-03-27 14:41:27 +0900
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"index"}
+  Rendering blogs/show.html.erb within layouts/application
+  Rendered blogs/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 137ms (Views: 129.7ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-27 14:41:59 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (4.6ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [2 times] (1.0ms)
+  Rendered blogs/index.html.erb within layouts/application (74.0ms)
+Completed 200 OK in 14405ms (Views: 244.0ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/..." for ::1 at 2020-03-27 14:42:13 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/..."):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.4) lib/puma/configuration.rb:227:in `call'
+puma (3.12.4) lib/puma/server.rb:675:in `handle_request'
+puma (3.12.4) lib/puma/server.rb:476:in `process_client'
+puma (3.12.4) lib/puma/server.rb:334:in `block in run'
+puma (3.12.4) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/blogs" for ::1 at 2020-03-27 14:43:15 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.7ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [2 times] (0.8ms)
+  Rendered blogs/index.html.erb within layouts/application (47.9ms)
+Completed 200 OK in 8356ms (Views: 225.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/..." for ::1 at 2020-03-27 14:43:24 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/..."):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.4) lib/puma/configuration.rb:227:in `call'
+puma (3.12.4) lib/puma/server.rb:675:in `handle_request'
+puma (3.12.4) lib/puma/server.rb:476:in `process_client'
+puma (3.12.4) lib/puma/server.rb:334:in `block in run'
+puma (3.12.4) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/blogs" for ::1 at 2020-03-27 14:54:28 +0900
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (undefined local variable or method `only' for BlogsController:Class):
+  
+app/controllers/blogs_controller.rb:3:in `<class:BlogsController>'
+app/controllers/blogs_controller.rb:1:in `<top (required)>'
+Started GET "/blogs" for ::1 at 2020-03-27 14:54:44 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [2 times] (0.6ms)
+  Rendered blogs/index.html.erb within layouts/application (25.3ms)
+Completed 500 Internal Server Error in 69ms (ActiveRecord: 3.4ms)
+
+
+  
+SyntaxError (C:/Users/yoshi/my_blog/my_blog/app/views/blogs/_blog.html.erb:13: syntax error, unexpected ensure, expecting end-of-input
+          ensure
+          ^~~~~~):
+  
+app/views/blogs/_blog.html.erb:13: syntax error, unexpected ensure, expecting end-of-input
+app/views/blogs/index.html.erb:1:in `_app_views_blogs_index_html_erb__158916592_66500520'
+Started GET "/blogs" for ::1 at 2020-03-27 14:55:13 +0900
+Processing by BlogsController#index as HTML
+  [1m[36mBlog Load (0.7ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 29ms (ActiveRecord: 2.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Blog with 'id'=):
+  
+app/controllers/blogs_controller.rb:6:in `set_blog'
+Started GET "/blogs" for ::1 at 2020-03-27 14:55:45 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.8ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [2 times] (0.6ms)
+  Rendered blogs/index.html.erb within layouts/application (25.6ms)
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 3.3ms)
+
+
+  
+SyntaxError (C:/Users/yoshi/my_blog/my_blog/app/views/blogs/_blog.html.erb:13: syntax error, unexpected ensure, expecting end-of-input
+          ensure
+          ^~~~~~):
+  
+app/views/blogs/_blog.html.erb:13: syntax error, unexpected ensure, expecting end-of-input
+app/views/blogs/index.html.erb:1:in `_app_views_blogs_index_html_erb__158916592_74485740'
+Started GET "/blogs" for ::1 at 2020-03-27 14:56:00 +0900
+  
+SyntaxError (C:/Users/yoshi/my_blog/my_blog/app/controllers/blogs_controller.rb:3: syntax error, unexpected [, expecting do or '{' or '('
+...before_action :set_blog, only [:show, :edit]
+...                              ^):
+  
+app/controllers/blogs_controller.rb:3: syntax error, unexpected [, expecting do or '{' or '('
+Started GET "/blogs" for ::1 at 2020-03-27 14:56:45 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.8ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [2 times] (22.0ms)
+  Rendered blogs/index.html.erb within layouts/application (84.3ms)
+Completed 500 Internal Server Error in 139ms (ActiveRecord: 5.3ms)
+
+
+  
+SyntaxError (C:/Users/yoshi/my_blog/my_blog/app/views/blogs/_blog.html.erb:13: syntax error, unexpected ensure, expecting end-of-input
+          ensure
+          ^~~~~~):
+  
+app/views/blogs/_blog.html.erb:13: syntax error, unexpected ensure, expecting end-of-input
+app/views/blogs/index.html.erb:1:in `_app_views_blogs_index_html_erb__158916592_83414240'
+Started GET "/blogs" for ::1 at 2020-03-27 14:57:22 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [2 times] (1.1ms)
+  Rendered blogs/index.html.erb within layouts/application (36.1ms)
+Completed 500 Internal Server Error in 70ms (ActiveRecord: 13.3ms)
+
+
+  
+SyntaxError (C:/Users/yoshi/my_blog/my_blog/app/views/blogs/_blog.html.erb:13: syntax error, unexpected ensure, expecting end-of-input
+          ensure
+          ^~~~~~):
+  
+app/views/blogs/_blog.html.erb:13: syntax error, unexpected ensure, expecting end-of-input
+app/views/blogs/index.html.erb:1:in `_app_views_blogs_index_html_erb__158916592_84965360'
+Started GET "/blogs" for ::1 at 2020-03-27 14:57:42 +0900
+  
+ActionController::RoutingError (undefined local variable or method `show' for BlogsController:Class):
+  
+app/controllers/blogs_controller.rb:3:in `<class:BlogsController>'
+app/controllers/blogs_controller.rb:1:in `<top (required)>'
+Started GET "/blogs" for ::1 at 2020-03-27 14:59:04 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (1.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [2 times] (3.1ms)
+  Rendered blogs/index.html.erb within layouts/application (23.4ms)
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 3.8ms)
+
+
+  
+SyntaxError (C:/Users/yoshi/my_blog/my_blog/app/views/blogs/_blog.html.erb:13: syntax error, unexpected ensure, expecting end-of-input
+          ensure
+          ^~~~~~):
+  
+app/views/blogs/_blog.html.erb:13: syntax error, unexpected ensure, expecting end-of-input
+app/views/blogs/index.html.erb:1:in `_app_views_blogs_index_html_erb__158916592_86385580'
+Started GET "/blogs" for ::1 at 2020-03-27 20:30:17 +0900
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.6ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [2 times] (1.3ms)
+  Rendered blogs/index.html.erb within layouts/application (59.2ms)
+Completed 500 Internal Server Error in 117ms (ActiveRecord: 3.2ms)
+
+
+  
+SyntaxError (C:/Users/yoshi/my_blog/my_blog/app/views/blogs/_blog.html.erb:13: syntax error, unexpected ensure, expecting end-of-input
+          ensure
+          ^~~~~~):
+  
+app/views/blogs/_blog.html.erb:13: syntax error, unexpected ensure, expecting end-of-input
+app/views/blogs/index.html.erb:1:in `_app_views_blogs_index_html_erb__194203340_82592020'
+Started GET "/blogs" for ::1 at 2020-03-27 20:31:09 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [2 times] (1.0ms)
+  Rendered blogs/index.html.erb within layouts/application (9.4ms)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 1.0ms)
+
+
+  
+SyntaxError (C:/Users/yoshi/my_blog/my_blog/app/views/blogs/_blog.html.erb:13: syntax error, unexpected ensure, expecting end-of-input
+          ensure
+          ^~~~~~):
+  
+app/views/blogs/_blog.html.erb:13: syntax error, unexpected ensure, expecting end-of-input
+app/views/blogs/index.html.erb:1:in `_app_views_blogs_index_html_erb__194203340_79592220'
+Started GET "/blogs" for ::1 at 2020-03-27 20:31:36 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.7ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [2 times] (1.1ms)
+  Rendered blogs/index.html.erb within layouts/application (65.2ms)
+Completed 500 Internal Server Error in 142ms (ActiveRecord: 12.1ms)
+
+
+  
+SyntaxError (C:/Users/yoshi/my_blog/my_blog/app/views/blogs/_blog.html.erb:13: syntax error, unexpected ensure, expecting end-of-input
+          ensure
+          ^~~~~~):
+  
+app/views/blogs/_blog.html.erb:13: syntax error, unexpected ensure, expecting end-of-input
+app/views/blogs/index.html.erb:1:in `_app_views_blogs_index_html_erb__194203340_78674860'
+Started GET "/blogs" for ::1 at 2020-03-27 20:31:48 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (1.8ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [2 times] (2.5ms)
+  Rendered blogs/index.html.erb within layouts/application (79.9ms)
+Completed 500 Internal Server Error in 161ms (ActiveRecord: 17.3ms)
+
+
+  
+SyntaxError (C:/Users/yoshi/my_blog/my_blog/app/views/blogs/_blog.html.erb:13: syntax error, unexpected ensure, expecting end-of-input
+          ensure
+          ^~~~~~):
+  
+app/views/blogs/_blog.html.erb:13: syntax error, unexpected ensure, expecting end-of-input
+app/views/blogs/index.html.erb:1:in `_app_views_blogs_index_html_erb__194203340_77441600'
+Started GET "/blogs" for ::1 at 2020-03-27 20:32:32 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered blogs/index.html.erb within layouts/application (13.2ms)
+Completed 500 Internal Server Error in 52ms
+
+
+  
+ActionView::Template::Error ('nil' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+    1: <%= render @blogs %>
+  
+app/views/blogs/index.html.erb:1:in `_app_views_blogs_index_html_erb__194203340_71915740'
+Started GET "/blogs" for ::1 at 2020-03-27 20:32:48 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.8ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [2 times] (1.0ms)
+  Rendered blogs/index.html.erb within layouts/application (43.0ms)
+Completed 500 Internal Server Error in 85ms (ActiveRecord: 7.2ms)
+
+
+  
+SyntaxError (C:/Users/yoshi/my_blog/my_blog/app/views/blogs/_blog.html.erb:13: syntax error, unexpected ensure, expecting end-of-input
+          ensure
+          ^~~~~~):
+  
+app/views/blogs/_blog.html.erb:13: syntax error, unexpected ensure, expecting end-of-input
+app/views/blogs/index.html.erb:1:in `_app_views_blogs_index_html_erb__194203340_109138560'
+Started GET "/blogs" for ::1 at 2020-03-27 20:33:05 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered blogs/index.html.erb within layouts/application (6.6ms)
+Completed 500 Internal Server Error in 23ms
+
+
+  
+ActionView::Template::Error ('nil' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+    1: <%= render @blogs %>
+  
+app/views/blogs/index.html.erb:1:in `_app_views_blogs_index_html_erb__194203340_78657460'
+Started GET "/blogs" for ::1 at 2020-03-27 20:33:16 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [2 times] (2.0ms)
+  Rendered blogs/index.html.erb within layouts/application (28.7ms)
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 5.1ms)
+
+
+  
+SyntaxError (C:/Users/yoshi/my_blog/my_blog/app/views/blogs/_blog.html.erb:13: syntax error, unexpected ensure, expecting end-of-input
+          ensure
+          ^~~~~~):
+  
+app/views/blogs/_blog.html.erb:13: syntax error, unexpected ensure, expecting end-of-input
+app/views/blogs/index.html.erb:1:in `_app_views_blogs_index_html_erb__194203340_72870380'
+Started GET "/blogs" for ::1 at 2020-03-27 20:34:47 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.9ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [2 times] (1.9ms)
+  Rendered blogs/index.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 30134ms (Views: 30119.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/..." for ::1 at 2020-03-27 20:35:17 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/..."):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.4) lib/puma/configuration.rb:227:in `call'
+puma (3.12.4) lib/puma/server.rb:675:in `handle_request'
+puma (3.12.4) lib/puma/server.rb:476:in `process_client'
+puma (3.12.4) lib/puma/server.rb:334:in `block in run'
+puma (3.12.4) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/blogs" for ::1 at 2020-03-27 20:36:03 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.6ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [2 times] (7.4ms)
+  Rendered blogs/index.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 292ms (Views: 282.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/..." for ::1 at 2020-03-27 20:36:04 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/..."):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.4) lib/puma/configuration.rb:227:in `call'
+puma (3.12.4) lib/puma/server.rb:675:in `handle_request'
+puma (3.12.4) lib/puma/server.rb:476:in `process_client'
+puma (3.12.4) lib/puma/server.rb:334:in `block in run'
+puma (3.12.4) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/blogs" for ::1 at 2020-03-27 20:36:41 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [2 times] (1.5ms)
+  Rendered blogs/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 333ms (Views: 327.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/..." for ::1 at 2020-03-27 20:36:41 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/..."):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.4) lib/puma/configuration.rb:227:in `call'
+puma (3.12.4) lib/puma/server.rb:675:in `handle_request'
+puma (3.12.4) lib/puma/server.rb:476:in `process_client'
+puma (3.12.4) lib/puma/server.rb:334:in `block in run'
+puma (3.12.4) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/blogs" for ::1 at 2020-03-27 20:37:14 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.7ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [2 times] (0.9ms)
+  Rendered blogs/index.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 271ms (Views: 264.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/..." for ::1 at 2020-03-27 20:37:14 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/..."):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.4) lib/puma/configuration.rb:227:in `call'
+puma (3.12.4) lib/puma/server.rb:675:in `handle_request'
+puma (3.12.4) lib/puma/server.rb:476:in `process_client'
+puma (3.12.4) lib/puma/server.rb:334:in `block in run'
+puma (3.12.4) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/blogs" for ::1 at 2020-03-27 20:37:39 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (6.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [2 times] (2.0ms)
+  Rendered blogs/index.html.erb within layouts/application (55.7ms)
+Completed 200 OK in 486ms (Views: 472.6ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/..." for ::1 at 2020-03-27 20:37:40 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/..."):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.4) lib/puma/configuration.rb:227:in `call'
+puma (3.12.4) lib/puma/server.rb:675:in `handle_request'
+puma (3.12.4) lib/puma/server.rb:476:in `process_client'
+puma (3.12.4) lib/puma/server.rb:334:in `block in run'
+puma (3.12.4) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/..." for ::1 at 2020-03-27 20:37:42 +0900
+Started GET "/blogs" for ::1 at 2020-03-27 20:37:42 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/..."):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.4) lib/puma/configuration.rb:227:in `call'
+puma (3.12.4) lib/puma/server.rb:675:in `handle_request'
+puma (3.12.4) lib/puma/server.rb:476:in `process_client'
+puma (3.12.4) lib/puma/server.rb:334:in `block in run'
+puma (3.12.4) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.6ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [2 times] (0.9ms)
+  Rendered blogs/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 647ms (Views: 641.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/..." for ::1 at 2020-03-27 20:37:43 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/..."):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.4) lib/puma/configuration.rb:227:in `call'
+puma (3.12.4) lib/puma/server.rb:675:in `handle_request'
+puma (3.12.4) lib/puma/server.rb:476:in `process_client'
+puma (3.12.4) lib/puma/server.rb:334:in `block in run'
+puma (3.12.4) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/blogs" for ::1 at 2020-03-27 20:38:09 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (2.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [2 times] (6.9ms)
+  Rendered blogs/index.html.erb within layouts/application (148.0ms)
+Completed 200 OK in 645ms (Views: 633.9ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/..." for ::1 at 2020-03-27 20:38:10 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/..."):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.4) lib/puma/configuration.rb:227:in `call'
+puma (3.12.4) lib/puma/server.rb:675:in `handle_request'
+puma (3.12.4) lib/puma/server.rb:476:in `process_client'
+puma (3.12.4) lib/puma/server.rb:334:in `block in run'
+puma (3.12.4) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/blogs/1" for ::1 at 2020-03-27 20:38:12 +0900
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBlog Load (0.9ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering blogs/show.html.erb within layouts/application
+  Rendered blogs/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 266ms (Views: 226.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/blogs/..." for ::1 at 2020-03-27 20:38:13 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/blogs/..."):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.4) lib/puma/configuration.rb:227:in `call'
+puma (3.12.4) lib/puma/server.rb:675:in `handle_request'
+puma (3.12.4) lib/puma/server.rb:476:in `process_client'
+puma (3.12.4) lib/puma/server.rb:334:in `block in run'
+puma (3.12.4) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/..." for ::1 at 2020-03-27 20:38:31 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/..."):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.4) lib/puma/configuration.rb:227:in `call'
+puma (3.12.4) lib/puma/server.rb:675:in `handle_request'
+puma (3.12.4) lib/puma/server.rb:476:in `process_client'
+puma (3.12.4) lib/puma/server.rb:334:in `block in run'
+puma (3.12.4) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-03-28 10:10:02 +0900
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TopController#top as HTML
+  Rendering top/top.html.erb within layouts/application
+  Rendered top/top.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 1385ms (Views: 1362.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 10:16:02 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.9ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [2 times] (3.4ms)
+  Rendered blogs/index.html.erb within layouts/application (31.6ms)
+Completed 200 OK in 269ms (Views: 251.1ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 10:16:43 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.9ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [2 times] (0.8ms)
+  Rendered blogs/index.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 191ms (Views: 183.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 10:20:36 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.9ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [2 times] (1.5ms)
+  Rendered blogs/index.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 482ms (Views: 473.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 10:21:13 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.8ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [2 times] (1.0ms)
+  Rendered blogs/index.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 255ms (Views: 248.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 10:22:14 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (3.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [2 times] (1.4ms)
+  Rendered blogs/index.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 255ms (Views: 225.9ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 10:22:35 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [2 times] (0.8ms)
+  Rendered blogs/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 240ms (Views: 235.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 10:26:03 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.6ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [2 times] (1.2ms)
+  Rendered blogs/index.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 190ms (Views: 184.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 10:26:24 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [2 times] (0.7ms)
+  Rendered blogs/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 164ms (Views: 158.2ms | ActiveRecord: 0.5ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (37.4ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "test3"], ["content", "testtest"], ["created_at", "2020-03-28 01:27:51.257514"], ["updated_at", "2020-03-28 01:27:51.257514"]]
+  [1m[35m (33.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (59.8ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "test4"], ["content", "testtesttest"], ["created_at", "2020-03-28 01:27:57.630947"], ["updated_at", "2020-03-28 01:27:57.630947"]]
+  [1m[35m (4.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.9ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "test5"], ["content", "testtesttest"], ["created_at", "2020-03-28 01:28:01.138958"], ["updated_at", "2020-03-28 01:28:01.138958"]]
+  [1m[35m (19.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.3ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "test6"], ["content", "testtesttest"], ["created_at", "2020-03-28 01:28:04.944775"], ["updated_at", "2020-03-28 01:28:04.944775"]]
+  [1m[35m (9.1ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/blogs" for 127.0.0.1 at 2020-03-28 10:28:31 +0900
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.3ms)
+  Rendered blogs/index.html.erb within layouts/application (36.6ms)
+Completed 200 OK in 1051ms (Views: 1018.5ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/blogs" for 127.0.0.1 at 2020-03-28 10:28:40 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.8ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.9ms)
+  Rendered blogs/index.html.erb within layouts/application (58.5ms)
+Completed 200 OK in 629ms (Views: 619.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/blogs" for 127.0.0.1 at 2020-03-28 10:28:54 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (2.2ms)
+  Rendered blogs/index.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 301ms (Views: 295.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/blogs" for 127.0.0.1 at 2020-03-28 10:29:12 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (2.2ms)
+  Rendered blogs/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 231ms (Views: 225.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 10:30:53 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.2ms)
+  Rendered blogs/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 203ms (Views: 198.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 10:31:01 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.8ms)
+  Rendered blogs/index.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 213ms (Views: 206.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 10:31:38 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.6ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (2.1ms)
+  Rendered blogs/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 211ms (Views: 202.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 10:31:53 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (1.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.9ms)
+  Rendered blogs/index.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 211ms (Views: 202.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 10:32:20 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.4ms)
+  Rendered blogs/index.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 271ms (Views: 264.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 10:32:31 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (3.7ms)
+  Rendered blogs/index.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 235ms (Views: 227.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 10:33:39 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.6ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (2.5ms)
+  Rendered blogs/index.html.erb within layouts/application (91.6ms)
+Completed 200 OK in 481ms (Views: 464.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 10:34:19 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.8ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.2ms)
+  Rendered blogs/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 269ms (Views: 261.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 10:34:28 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (3.4ms)
+  Rendered blogs/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 249ms (Views: 243.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 10:34:38 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (3.6ms)
+  Rendered blogs/index.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 205ms (Views: 198.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 10:38:14 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.7ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (2.3ms)
+  Rendered blogs/index.html.erb within layouts/application (18.9ms)
+Completed 200 OK in 554ms (Views: 533.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 10:38:24 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (5.6ms)
+  Rendered blogs/index.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 249ms (Views: 237.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 15:47:07 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.6ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.8ms)
+  Rendered blogs/index.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 198ms (Views: 192.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 15:47:35 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.7ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.7ms)
+  Rendered blogs/index.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 304ms (Views: 292.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 15:47:43 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.8ms)
+  Rendered blogs/index.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 341ms (Views: 331.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 15:48:01 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.8ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.8ms)
+  Rendered blogs/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 220ms (Views: 214.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 15:48:17 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (7.3ms)
+  Rendered blogs/index.html.erb within layouts/application (53.8ms)
+Completed 200 OK in 462ms (Views: 455.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 15:48:29 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.6ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (2.7ms)
+  Rendered blogs/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 279ms (Views: 269.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 15:49:34 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.3ms)
+  Rendered blogs/index.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 292ms (Views: 284.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 15:50:25 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.6ms)
+  Rendered blogs/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 240ms (Views: 234.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 15:54:48 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (3.3ms)
+  Rendered blogs/index.html.erb within layouts/application (12.7ms)
+Completed 500 Internal Server Error in 247ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (Missing partial layoputs/_side_bar with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "C:/Users/yoshi/my_blog/my_blog/app/views"
+):
+    11:   <body>
+    12:     <div class="row">
+    13:       <div class = "col-md-4">
+    14:         <%= render "layoputs/side_bar" %>
+    15:       </div>
+    16:       <div class="col-md-8">
+    17:         <%= yield %>
+  
+app/views/layouts/application.html.erb:14:in `_app_views_layouts_application_html_erb__480564710_119988340'
+Started GET "/blogs" for ::1 at 2020-03-28 15:55:15 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.8ms)
+  Rendered blogs/index.html.erb within layouts/application (57.7ms)
+  Rendered layouts/_side_bar.html.erb (1.0ms)
+Completed 200 OK in 568ms (Views: 559.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 15:55:34 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (1.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.7ms)
+  Rendered blogs/index.html.erb within layouts/application (12.5ms)
+  Rendered layouts/_side_bar.html.erb (0.3ms)
+Completed 200 OK in 195ms (Views: 185.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 15:55:49 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.6ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (3.3ms)
+  Rendered blogs/index.html.erb within layouts/application (76.2ms)
+  Rendered layouts/_side_bar.html.erb (0.5ms)
+Completed 200 OK in 539ms (Views: 525.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 15:56:45 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.8ms)
+  Rendered blogs/index.html.erb within layouts/application (14.6ms)
+  Rendered layouts/_side_bar.html.erb (0.5ms)
+Completed 200 OK in 263ms (Views: 257.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 15:58:37 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.6ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.8ms)
+  Rendered blogs/index.html.erb within layouts/application (39.9ms)
+  Rendered layouts/_side_bar.html.erb (0.5ms)
+Completed 200 OK in 441ms (Views: 432.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 16:00:01 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.0ms)
+  Rendered blogs/index.html.erb within layouts/application (10.3ms)
+Completed 500 Internal Server Error in 3345ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (Invalid CSS after "...ort "bootstrap"": expected selector or at-rule, was ".circle{"):
+    4:     <title>MyBlog</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/assets/stylesheets/custom.css.scss:4
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb__480564710_89243440'
+Started GET "/blogs" for ::1 at 2020-03-28 16:00:29 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (2.1ms)
+  Rendered blogs/index.html.erb within layouts/application (13.6ms)
+  Rendered layouts/_side_bar.html.erb (0.6ms)
+Completed 200 OK in 20064ms (Views: 20058.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 16:01:14 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.8ms)
+  Rendered blogs/index.html.erb within layouts/application (11.4ms)
+  Rendered layouts/_side_bar.html.erb (0.7ms)
+Completed 200 OK in 18392ms (Views: 18339.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 16:01:49 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (2.5ms)
+  Rendered blogs/index.html.erb within layouts/application (11.0ms)
+  Rendered layouts/_side_bar.html.erb (1.2ms)
+Completed 200 OK in 17301ms (Views: 17296.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 16:03:13 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.3ms)
+  Rendered blogs/index.html.erb within layouts/application (7.2ms)
+  Rendered layouts/_side_bar.html.erb (0.4ms)
+Completed 200 OK in 383ms (Views: 377.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 16:03:40 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (2.4ms)
+  Rendered blogs/index.html.erb within layouts/application (11.3ms)
+  Rendered layouts/_side_bar.html.erb (0.4ms)
+Completed 200 OK in 218ms (Views: 212.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 16:04:33 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.6ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (4.4ms)
+  Rendered blogs/index.html.erb within layouts/application (34.5ms)
+  Rendered layouts/_side_bar.html.erb (1.2ms)
+Completed 200 OK in 14101ms (Views: 14094.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 16:05:20 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (2.0ms)
+  Rendered blogs/index.html.erb within layouts/application (10.1ms)
+  Rendered layouts/_side_bar.html.erb (0.5ms)
+Completed 200 OK in 14893ms (Views: 14888.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 16:10:00 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.0ms)
+  Rendered blogs/index.html.erb within layouts/application (8.6ms)
+  Rendered layouts/_side_bar.html.erb (0.5ms)
+Completed 200 OK in 187ms (Views: 181.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 16:12:29 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.9ms)
+  Rendered blogs/index.html.erb within layouts/application (25.7ms)
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 2.9ms)
+
+
+  
+ActionView::Template::Error ('nil' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+    3: </div>
+    4: 
+    5: <div class="row">
+    6:   <%= render @relational_blogs %>
+    7: </div>
+  
+app/views/blogs/index.html.erb:6:in `_app_views_blogs_index_html_erb__1060874399_135913020'
+Started GET "/blogs" for ::1 at 2020-03-28 16:13:24 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.1ms)
+  [1m[36mCACHE Blog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (0.8ms)
+  Rendered blogs/index.html.erb within layouts/application (19.5ms)
+  Rendered layouts/_side_bar.html.erb (0.5ms)
+Completed 200 OK in 196ms (Views: 190.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 16:14:22 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.7ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.9ms)
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (0.7ms)
+  Rendered blogs/index.html.erb within layouts/application (89.2ms)
+  Rendered layouts/_side_bar.html.erb (0.7ms)
+Completed 200 OK in 376ms (Views: 354.7ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 16:16:03 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.0ms)
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.5ms)
+  Rendered blogs/index.html.erb within layouts/application (18.4ms)
+  Rendered layouts/_side_bar.html.erb (0.5ms)
+Completed 200 OK in 241ms (Views: 237.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 16:16:16 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.0ms)
+  Rendered blogs/index.html.erb within layouts/application (7.4ms)
+  Rendered layouts/_side_bar.html.erb (0.5ms)
+Completed 200 OK in 186ms (Views: 180.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 16:16:25 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (1.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.0ms)
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (0.6ms)
+  Rendered blogs/index.html.erb within layouts/application (14.5ms)
+  Rendered layouts/_side_bar.html.erb (0.5ms)
+Completed 200 OK in 198ms (Views: 188.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 16:16:39 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.6ms)
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (0.5ms)
+  Rendered blogs/index.html.erb within layouts/application (14.5ms)
+  Rendered layouts/_side_bar.html.erb (0.3ms)
+Completed 200 OK in 157ms (Views: 150.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 16:17:22 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (2.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.2ms)
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.1ms)
+  Rendered blogs/index.html.erb within layouts/application (17.9ms)
+  Rendered layouts/_side_bar.html.erb (0.5ms)
+Completed 200 OK in 265ms (Views: 255.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 16:17:38 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered blogs/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_side_bar.html.erb (1.2ms)
+Completed 200 OK in 183ms (Views: 178.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 16:17:43 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.6ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (2.1ms)
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.2ms)
+  Rendered blogs/index.html.erb within layouts/application (165.4ms)
+  Rendered layouts/_side_bar.html.erb (0.8ms)
+Completed 200 OK in 401ms (Views: 393.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 16:18:19 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.6ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (2.7ms)
+  Rendered blogs/index.html.erb within layouts/application (11.7ms)
+  Rendered layouts/_side_bar.html.erb (0.5ms)
+Completed 200 OK in 242ms (Views: 231.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 16:18:56 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.1ms)
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (0.9ms)
+  Rendered blogs/index.html.erb within layouts/application (15.0ms)
+  Rendered layouts/_side_bar.html.erb (0.9ms)
+Completed 200 OK in 195ms (Views: 188.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 16:19:13 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.7ms)
+  Rendered blogs/index.html.erb within layouts/application (10.0ms)
+  Rendered layouts/_side_bar.html.erb (0.9ms)
+Completed 200 OK in 463ms (Views: 455.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 16:19:29 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.7ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (2.0ms)
+  Rendered blogs/index.html.erb within layouts/application (97.0ms)
+  Rendered layouts/_side_bar.html.erb (0.5ms)
+Completed 200 OK in 612ms (Views: 601.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 16:20:13 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.2ms)
+  Rendered blogs/index.html.erb within layouts/application (9.1ms)
+  Rendered layouts/_side_bar.html.erb (0.6ms)
+Completed 200 OK in 281ms (Views: 273.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 16:24:01 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.3ms)
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered blogs/index.html.erb within layouts/application (25.0ms)
+  Rendered layouts/_side_bar.html.erb (0.3ms)
+Completed 200 OK in 344ms (Views: 331.9ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 16:24:22 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.7ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.0ms)
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered blogs/index.html.erb within layouts/application (13.5ms)
+  Rendered layouts/_side_bar.html.erb (0.6ms)
+Completed 200 OK in 260ms (Views: 255.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 16:25:37 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (1.8ms)
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered blogs/index.html.erb within layouts/application (87.7ms)
+  Rendered layouts/_side_bar.html.erb (0.5ms)
+Completed 200 OK in 339ms (Views: 323.9ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/blogs/5" for ::1 at 2020-03-28 16:26:00 +0900
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBlog Load (10.9ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering blogs/show.html.erb within layouts/application
+  Rendered blogs/show.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_side_bar.html.erb (0.7ms)
+Completed 200 OK in 293ms (Views: 185.6ms | ActiveRecord: 10.9ms)
+
+
+Started GET "/blogs/5" for ::1 at 2020-03-28 16:26:58 +0900
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering blogs/show.html.erb within layouts/application
+  Rendered blogs/show.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_side_bar.html.erb (0.5ms)
+Completed 200 OK in 219ms (Views: 210.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/blogs/5" for ::1 at 2020-03-28 16:28:55 +0900
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering blogs/show.html.erb within layouts/application
+  Rendered blogs/show.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_side_bar.html.erb (0.7ms)
+Completed 200 OK in 170ms (Views: 164.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/blogs/5" for ::1 at 2020-03-28 16:30:09 +0900
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 2.7ms)
+
+
+  
+NoMethodError (undefined method `call' for #<Class:0x0000000011ae1698>
+Did you mean?  all):
+  
+app/controllers/blogs_controller.rb:16:in `show'
+Started GET "/blogs/5" for ::1 at 2020-03-28 16:30:23 +0900
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBlog Load (3.8ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 343ms (ActiveRecord: 31.0ms)
+
+
+  
+NoMethodError (undefined method `Blog' for #<BlogsController:0x00000000122cbef8>):
+  
+app/controllers/blogs_controller.rb:16:in `show'
+Started GET "/blogs/5" for ::1 at 2020-03-28 16:31:19 +0900
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 116ms (ActiveRecord: 2.8ms)
+
+
+  
+NoMethodError (undefined method `Blog' for #<BlogsController:0x000000001000bf58>):
+  
+app/controllers/blogs_controller.rb:16:in `show'
+Started GET "/blogs" for ::1 at 2020-03-28 16:31:30 +0900
+Processing by BlogsController#index as HTML
+  [1m[36mBlog Load (0.6ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" LIMIT ?[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 40541ms (ActiveRecord: 3.3ms)
+
+
+  
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" LIMIT ?[0m  [["LIMIT", 11]]
+NoMethodError (undefined method `Blog' for #<BlogsController:0x000000000d970358>):
+  
+app/controllers/blogs_controller.rb:12:in `index'
+Started GET "/blogs" for ::1 at 2020-03-28 16:32:38 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (2.6ms)
+  Rendered blogs/index.html.erb within layouts/application (22.5ms)
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 2.5ms)
+
+
+  
+ActionView::Template::Error (can't convert Range into Integer):
+    4: 
+    5: <h3>人気記事</h3>
+    6: <div class="row">
+    7:   <% @relational_blogs.each do %>
+    8:   <div class="col-3">
+    9:     <img src="https://purchase-app-backet.s3.amazonaws.com/uploads/user-default.png" class="img-thumbnail">
+   10:   </div>
+  
+app/views/blogs/index.html.erb:7:in `_app_views_blogs_index_html_erb__1060874399_118931260'
+Started GET "/blogs" for ::1 at 2020-03-28 16:33:26 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (2.3ms)
+  Rendered blogs/index.html.erb within layouts/application (29.0ms)
+Completed 500 Internal Server Error in 76ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (can't convert Range into Integer):
+    4: 
+    5: <h3>人気記事</h3>
+    6: <div class="row">
+    7:   <% @relational_blogs.each do %>
+    8:   <div class="col-3">
+    9:     <img src="https://purchase-app-backet.s3.amazonaws.com/uploads/user-default.png" class="img-thumbnail">
+   10:   </div>
+  
+app/views/blogs/index.html.erb:7:in `_app_views_blogs_index_html_erb__1060874399_127749920'
+Started GET "/blogs" for ::1 at 2020-03-28 16:33:32 +0900
+Processing by BlogsController#index as HTML
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/" for ::1 at 2020-03-28 21:13:27 +0900
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TopController#top as HTML
+  Rendering top/top.html.erb within layouts/application
+  Rendered top/top.html.erb within layouts/application (12.0ms)
+  Rendered layouts/_side_bar.html.erb (0.6ms)
+Completed 200 OK in 2107ms (Views: 2090.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/blogs" for ::1 at 2020-03-28 21:13:47 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.7ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (5.0ms)
+  Rendered blogs/index.html.erb within layouts/application (145.6ms)
+Completed 500 Internal Server Error in 12647ms (ActiveRecord: 4.9ms)
+
+
+  
+ActionView::Template::Error (can't convert Range into Integer):
+    4: 
+    5: <h3>人気記事</h3>
+    6: <div class="row">
+    7:   <% @relational_blogs.each do %>
+    8:   <div class="col-3">
+    9:     <img src="https://purchase-app-backet.s3.amazonaws.com/uploads/user-default.png" class="img-thumbnail">
+   10:   </div>
+  
+app/views/blogs/index.html.erb:7:in `_app_views_blogs_index_html_erb__343903848_123654980'
+Started GET "/blogs" for ::1 at 2020-03-28 21:20:44 +0900
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.6ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  Rendered collection of blogs/_blog.html.erb [6 times] (2.0ms)
+  [1m[36mBlog Load (1.5ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" LIMIT ?[0m  [["LIMIT", 3]]
+  Rendered blogs/index.html.erb within layouts/application (47.1ms)
+  Rendered layouts/_side_bar.html.erb (0.6ms)
+Completed 200 OK in 489ms (Views: 473.5ms | ActiveRecord: 10.6ms)
+
+
+Started GET "/top/managements" for ::1 at 2020-03-28 21:28:05 +0900
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TopController#managements as HTML
+  Rendering top/managements.html.erb within layouts/application
+  Rendered top/managements.html.erb within layouts/application (737.1ms)
+Completed 500 Internal Server Error in 787ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `blog_new_path' for #<#<Class:0x0000000009cc8838>:0x0000000009cdbde8>
+Did you mean?  blog_path
+               blogs_path):
+    1: <%= link_to blog_new_path, "記事作成" %>
+    2: <%= link_to category_new_path, "カテゴリー" %>
+  
+app/views/top/managements.html.erb:1:in `_app_views_top_managements_html_erb__778821607_82203400'
+Started GET "/top/managements" for ::1 at 2020-03-28 21:29:29 +0900
+Processing by TopController#managements as HTML
+  Rendering top/managements.html.erb within layouts/application
+  Rendered top/managements.html.erb within layouts/application (617.6ms)
+Completed 500 Internal Server Error in 639ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `blogs_new_path' for #<#<Class:0x0000000009cc8838>:0x000000000956f4d8>
+Did you mean?  blogs_path):
+    1: <%= link_to blogs_new_path, "記事作成" %>
+    2: <%= link_to category_new_path, "カテゴリー" %>
+  
+app/views/top/managements.html.erb:1:in `_app_views_top_managements_html_erb__778821607_78324440'
+Started GET "/top/managements" for 127.0.0.1 at 2020-03-28 21:30:59 +0900
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TopController#managements as HTML
+  Rendering top/managements.html.erb within layouts/application
+  Rendered top/managements.html.erb within layouts/application (10.2ms)
+  Rendered layouts/_side_bar.html.erb (0.6ms)
+Completed 200 OK in 1280ms (Views: 1262.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/top/managements" for ::1 at 2020-03-28 21:31:51 +0900
+Processing by TopController#managements as HTML
+  Rendering top/managements.html.erb within layouts/application
+  Rendered top/managements.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_side_bar.html.erb (0.6ms)
+Completed 200 OK in 303ms (Views: 297.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/blogs/new" for ::1 at 2020-03-28 21:31:55 +0900
+  
+AbstractController::ActionNotFound (The action 'new' could not be found for BlogsController):
+  
+actionpack (5.1.7) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.7) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.7) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.7) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.7) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.7) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.7) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.7) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.7) lib/action_dispatch/routing/route_set.rb:844:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+rack (2.2.2) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.2) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.7) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.7) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.7) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.4) lib/puma/configuration.rb:227:in `call'
+puma (3.12.4) lib/puma/server.rb:675:in `handle_request'
+puma (3.12.4) lib/puma/server.rb:476:in `process_client'
+puma (3.12.4) lib/puma/server.rb:334:in `block in run'
+puma (3.12.4) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/top/managements" for ::1 at 2020-03-28 21:31:59 +0900
+Processing by TopController#managements as HTML
+  Rendering top/managements.html.erb within layouts/application
+  Rendered top/managements.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_side_bar.html.erb (0.4ms)
+Completed 200 OK in 446ms (Views: 434.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/top/managements" for ::1 at 2020-03-28 21:32:28 +0900
+Processing by TopController#managements as HTML
+  Rendering top/managements.html.erb within layouts/application
+  Rendered top/managements.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_side_bar.html.erb (0.5ms)
+Completed 200 OK in 238ms (Views: 232.4ms)
+
+
+Started GET "/blogs/new" for ::1 at 2020-03-28 21:32:31 +0900
+Processing by BlogsController#new as HTML
+Completed 406 Not Acceptable in 416ms (ActiveRecord: 3.2ms)
+
+
+  
+ActionController::UnknownFormat (BlogsController#new is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.1.7) lib/action_controller/metal/implicit_render.rb:53:in `default_render'
+actionpack (5.1.7) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.1.7) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.1.7) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.7) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.7) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.7) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.7) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.7) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.7) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.7) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.7) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.7) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.7) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.7) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.7) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.7) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.7) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.7) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.7) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.7) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.7) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.7) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.7) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.7) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.7) lib/action_dispatch/routing/route_set.rb:844:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+rack (2.2.2) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.2) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.7) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.7) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.7) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.4) lib/puma/configuration.rb:227:in `call'
+puma (3.12.4) lib/puma/server.rb:675:in `handle_request'
+puma (3.12.4) lib/puma/server.rb:476:in `process_client'
+puma (3.12.4) lib/puma/server.rb:334:in `block in run'
+puma (3.12.4) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/blogs/new" for ::1 at 2020-03-28 21:40:58 +0900
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Category Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Category Load (0.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" LIMIT ?[0m  [["LIMIT", 11]]
+  Rendered blogs/_form.html.erb (660.4ms)
+  Rendered blogs/new.html.erb within layouts/application (670.5ms)
+Completed 500 Internal Server Error in 730ms (ActiveRecord: 5.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `obj' for #<#<Class:0x000000000cc115e0>:0x000000000cc2ab58>):
+    1: <%= form_for obj do |f| %>
+    2: 
+    3:   <div class="form-group">
+    4:               <div class = "row">
+  
+app/views/blogs/_form.html.erb:1:in `_app_views_blogs__form_html_erb__1069078759_107318260'
+app/views/blogs/new.html.erb:1:in `_app_views_blogs_new_html_erb__913128884_106995280'
+Started GET "/blogs/new" for ::1 at 2020-03-28 21:41:26 +0900
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (107.4ms)
+  Rendered blogs/new.html.erb within layouts/application (126.2ms)
+Completed 500 Internal Server Error in 157ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `price' for #<Blog:0x000000000ea5b668>):
+     8:             <%= f.text_field :title, required: true, class: "form-control",maxlength: 32  %>
+     9:           </div>
+    10:           <div class = "col-md-6"><%= f.label "本文"%>
+    11:             <%= f.text_field :price, required: true, class: "form-control"%>
+    12:           </div>
+    13:           </div>
+    14:         </div>
+  
+app/views/blogs/_form.html.erb:11:in `block in _app_views_blogs__form_html_erb__1069078759_122936020'
+app/views/blogs/_form.html.erb:1:in `_app_views_blogs__form_html_erb__1069078759_122936020'
+app/views/blogs/new.html.erb:1:in `_app_views_blogs_new_html_erb__913128884_122867860'
+Started GET "/blogs/new" for ::1 at 2020-03-28 21:42:09 +0900
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (34.5ms)
+  Rendered blogs/new.html.erb within layouts/application (46.5ms)
+Completed 500 Internal Server Error in 74ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `category' for #<Blog:0x000000000e475000>):
+    15: 
+    16:           <div class = "col-md-3">
+    17:             <label for="exampleFormControlSelect1">カテゴリー</label>
+    18:             <%= f.select(:category, @categories.name, class: "form-control", id: "exampleFormControlSelect1", include_blank: "未選択") %><br>
+    19:           </div>
+    20:          <div class = "form-group center">
+    21:           <%= f.submit "保存", class: "btn btn-primary" %>
+  
+app/views/blogs/_form.html.erb:18:in `block in _app_views_blogs__form_html_erb__1069078759_119810040'
+app/views/blogs/_form.html.erb:1:in `_app_views_blogs__form_html_erb__1069078759_119810040'
+app/views/blogs/new.html.erb:1:in `_app_views_blogs_new_html_erb__913128884_119799200'
+Started GET "/blogs/new" for ::1 at 2020-03-28 21:43:05 +0900
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (33.9ms)
+  Rendered blogs/new.html.erb within layouts/application (39.9ms)
+Completed 500 Internal Server Error in 77ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `category' for #<Blog:0x000000000e47e718>):
+    15: 
+    16:           <div class = "col-md-3">
+    17:             <label >カテゴリー</label>
+    18:             <%= f.select(:category, @categories.name, class: "form-control", include_blank: "未選択") %><br>
+    19:           </div>
+    20:          <div class = "form-group center">
+    21:           <%= f.submit "保存", class: "btn btn-primary" %>
+  
+app/views/blogs/_form.html.erb:18:in `block in _app_views_blogs__form_html_erb__1069078759_119827700'
+app/views/blogs/_form.html.erb:1:in `_app_views_blogs__form_html_erb__1069078759_119827700'
+app/views/blogs/new.html.erb:1:in `_app_views_blogs_new_html_erb__913128884_119793960'
+Started GET "/blogs/new" for ::1 at 2020-03-28 21:44:07 +0900
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (28.7ms)
+  Rendered blogs/new.html.erb within layouts/application (35.9ms)
+Completed 500 Internal Server Error in 115ms (ActiveRecord: 2.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `category' for #<Blog:0x000000000e71c9c0>
+Did you mean?  category_ids):
+    15: 
+    16:           <div class = "col-md-3">
+    17:             <label >カテゴリー</label>
+    18:             <%= f.select(:category, @categories.name, class: "form-control", include_blank: "未選択") %><br>
+    19:           </div>
+    20:          <div class = "form-group center">
+    21:           <%= f.submit "保存", class: "btn btn-primary" %>
+  
+app/views/blogs/_form.html.erb:18:in `block in _app_views_blogs__form_html_erb__1069078759_122134320'
+app/views/blogs/_form.html.erb:1:in `_app_views_blogs__form_html_erb__1069078759_122134320'
+app/views/blogs/new.html.erb:1:in `_app_views_blogs_new_html_erb__913128884_121417980'
+Started GET "/blogs/new" for ::1 at 2020-03-28 21:44:28 +0900
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (80.2ms)
+  Rendered blogs/new.html.erb within layouts/application (86.7ms)
+  Rendered layouts/_side_bar.html.erb (2.5ms)
+Completed 200 OK in 323ms (Views: 314.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/blogs/new" for ::1 at 2020-03-28 21:44:47 +0900
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (7.0ms)
+  Rendered blogs/new.html.erb within layouts/application (14.6ms)
+  Rendered layouts/_side_bar.html.erb (0.6ms)
+Completed 200 OK in 332ms (Views: 323.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/blogs/new" for ::1 at 2020-03-28 21:45:00 +0900
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (5.6ms)
+  Rendered blogs/new.html.erb within layouts/application (13.7ms)
+  Rendered layouts/_side_bar.html.erb (0.6ms)
+Completed 200 OK in 320ms (Views: 312.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/blogs/new" for ::1 at 2020-03-28 21:45:33 +0900
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (2.9ms)
+  Rendered blogs/new.html.erb within layouts/application (9.5ms)
+  Rendered layouts/_side_bar.html.erb (1.2ms)
+Completed 200 OK in 240ms (Views: 229.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/blogs/new" for ::1 at 2020-03-28 21:45:53 +0900
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (4.0ms)
+  Rendered blogs/new.html.erb within layouts/application (9.6ms)
+  Rendered layouts/_side_bar.html.erb (0.4ms)
+Completed 200 OK in 196ms (Views: 190.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/top/managements" for ::1 at 2020-03-28 21:51:04 +0900
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TopController#managements as HTML
+  Rendering top/managements.html.erb within layouts/application
+  Rendered top/managements.html.erb within layouts/application (5.8ms)
+  Rendered layouts/_side_bar.html.erb (0.7ms)
+Completed 200 OK in 1474ms (Views: 1460.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/categories/new" for ::1 at 2020-03-28 21:51:10 +0900
+Processing by CategoriesController#new as HTML
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/_form.html.erb (81.4ms)
+  Rendered categories/new.html.erb within layouts/application (91.8ms)
+  Rendered layouts/_side_bar.html.erb (0.9ms)
+Completed 200 OK in 615ms (Views: 551.3ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/categories" for ::1 at 2020-03-28 21:51:16 +0900
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for CategoriesController):
+  
+actionpack (5.1.7) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.7) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.7) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.7) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.7) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.7) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.7) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.7) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.7) lib/action_dispatch/routing/route_set.rb:844:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+rack (2.2.2) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.2) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.7) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.7) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.7) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.4) lib/puma/configuration.rb:227:in `call'
+puma (3.12.4) lib/puma/server.rb:675:in `handle_request'
+puma (3.12.4) lib/puma/server.rb:476:in `process_client'
+puma (3.12.4) lib/puma/server.rb:334:in `block in run'
+puma (3.12.4) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/categories" for ::1 at 2020-03-28 21:55:58 +0900
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mqlS1vmjX503og2E1bT9x7WFtBk26OtW4KXPjq58GsoDvV3pU9GIjIFv4fMfqxBvZSylOUIVQBURJ3dzvGK2Qg==", "category"=>{"name"=>"生活"}, "commit"=>"保存"}
+Completed 500 Internal Server Error in 18ms
+
+
+  
+TypeError (no implicit conversion of Symbol into String):
+  
+app/controllers/categories_controller.rb:22:in `categories_params'
+app/controllers/categories_controller.rb:15:in `create'
+Started POST "/categories" for ::1 at 2020-03-28 21:56:31 +0900
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mqlS1vmjX503og2E1bT9x7WFtBk26OtW4KXPjq58GsoDvV3pU9GIjIFv4fMfqxBvZSylOUIVQBURJ3dzvGK2Qg==", "category"=>{"name"=>"生活"}, "commit"=>"保存"}
+Completed 500 Internal Server Error in 14ms
+
+
+  
+TypeError (no implicit conversion of Symbol into String):
+  
+app/controllers/categories_controller.rb:22:in `categories_params'
+app/controllers/categories_controller.rb:15:in `create'
+Started GET "/categories/new" for ::1 at 2020-03-28 21:57:30 +0900
+Processing by CategoriesController#new as HTML
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/_form.html.erb (4.3ms)
+  Rendered categories/new.html.erb within layouts/application (19.0ms)
+  Rendered layouts/_side_bar.html.erb (0.6ms)
+Completed 200 OK in 500ms (Views: 445.5ms | ActiveRecord: 5.6ms)
+
+
+Started POST "/categories" for ::1 at 2020-03-28 21:57:33 +0900
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lilNFycSEouaWyL0xGfqIDeTDFUrIJZDG0iwHBYVwPgPPUIojWDFmiyWzoMOeAeI5zoddV/dPQDqygjhBAtscA==", "category"=>{"name"=>"生活"}, "commit"=>"保存"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (no implicit conversion of Symbol into String):
+  
+app/controllers/categories_controller.rb:22:in `categories_params'
+app/controllers/categories_controller.rb:15:in `create'
+Started POST "/categories" for ::1 at 2020-03-28 21:58:28 +0900
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lilNFycSEouaWyL0xGfqIDeTDFUrIJZDG0iwHBYVwPgPPUIojWDFmiyWzoMOeAeI5zoddV/dPQDqygjhBAtscA==", "category"=>{"name"=>"生活"}, "commit"=>"保存"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 138ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/categories" for ::1 at 2020-03-28 21:58:28 +0900
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered categories/index.html.erb within layouts/application (9.0ms)
+  Rendered layouts/_side_bar.html.erb (0.6ms)
+Completed 200 OK in 360ms (Views: 350.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories" for ::1 at 2020-03-28 21:59:40 +0900
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered categories/index.html.erb within layouts/application (6.8ms)
+  Rendered layouts/_side_bar.html.erb (0.7ms)
+Completed 200 OK in 333ms (Views: 324.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/categories" for ::1 at 2020-03-28 22:01:37 +0900
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lilNFycSEouaWyL0xGfqIDeTDFUrIJZDG0iwHBYVwPgPPUIojWDFmiyWzoMOeAeI5zoddV/dPQDqygjhBAtscA==", "category"=>{"name"=>"生活"}, "commit"=>"保存"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 35ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/categories" for ::1 at 2020-03-28 22:01:37 +0900
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered categories/index.html.erb within layouts/application (5.6ms)
+  Rendered layouts/_side_bar.html.erb (0.7ms)
+Completed 200 OK in 324ms (Views: 313.5ms | ActiveRecord: 0.5ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveBlogsIdFormCategories (20200328130540)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveBlogsIdFormCategories (20200328130540)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acategories" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "blog_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_categories_on_blog_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_categories_on_blog_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "tindex_acategories_on_blog_id" ON "acategories" ("blog_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "acategories" ("id","name","blog_id","created_at","updated_at")
+                     SELECT "id","name","blog_id","created_at","updated_at" FROM "categories"[0m
+  [1m[35m (2.0ms)[0m  [1m[35mDROP TABLE "categories"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "categories" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_acategories_on_blog_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_acategories_on_blog_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("id","name","created_at","updated_at")
+                     SELECT "id","name","created_at","updated_at" FROM "acategories"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "acategories"[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200328130540"]]
+  [1m[35m (5.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/categories" for ::1 at 2020-03-28 22:07:58 +0900
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lilNFycSEouaWyL0xGfqIDeTDFUrIJZDG0iwHBYVwPgPPUIojWDFmiyWzoMOeAeI5zoddV/dPQDqygjhBAtscA==", "category"=>{"name"=>"生活"}, "commit"=>"保存"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 158ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/categories" for ::1 at 2020-03-28 22:08:00 +0900
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (2.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered categories/index.html.erb within layouts/application (14.0ms)
+  Rendered layouts/_side_bar.html.erb (0.5ms)
+Completed 200 OK in 1186ms (Views: 1176.2ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/categories" for ::1 at 2020-03-28 22:08:08 +0900
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lilNFycSEouaWyL0xGfqIDeTDFUrIJZDG0iwHBYVwPgPPUIojWDFmiyWzoMOeAeI5zoddV/dPQDqygjhBAtscA==", "category"=>{"name"=>"生活"}, "commit"=>"保存"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 60ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/categories" for ::1 at 2020-03-28 22:08:09 +0900
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered categories/index.html.erb within layouts/application (8.8ms)
+  Rendered layouts/_side_bar.html.erb (0.5ms)
+Completed 200 OK in 378ms (Views: 365.0ms | ActiveRecord: 0.7ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "test"], ["created_at", "2020-03-28 13:16:02.823219"], ["updated_at", "2020-03-28 13:16:02.823219"]]
+  [1m[35m (4.2ms)[0m  [1m[36mcommit transaction[0m
+Started POST "/categories" for ::1 at 2020-03-28 22:16:35 +0900
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lilNFycSEouaWyL0xGfqIDeTDFUrIJZDG0iwHBYVwPgPPUIojWDFmiyWzoMOeAeI5zoddV/dPQDqygjhBAtscA==", "category"=>{"name"=>"生活"}, "commit"=>"保存"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 211ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/categories" for ::1 at 2020-03-28 22:16:37 +0900
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered collection of categories/_category.html.erb [1 times] (16.8ms)
+  Rendered categories/index.html.erb within layouts/application (45.7ms)
+Completed 500 Internal Server Error in 90ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <%= @category.name %>
+    2: 
+    3: <%= @category.content %>
+  
+app/views/categories/_category.html.erb:1:in `_app_views_categories__category_html_erb__939670787_80325560'
+app/views/categories/index.html.erb:3:in `_app_views_categories_index_html_erb__630989924_79834640'
+Started POST "/categories" for ::1 at 2020-03-28 22:16:47 +0900
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lilNFycSEouaWyL0xGfqIDeTDFUrIJZDG0iwHBYVwPgPPUIojWDFmiyWzoMOeAeI5zoddV/dPQDqygjhBAtscA==", "category"=>{"name"=>"生活"}, "commit"=>"保存"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 6ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/categories" for ::1 at 2020-03-28 22:16:47 +0900
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered collection of categories/_category.html.erb [1 times] (5.6ms)
+  Rendered categories/index.html.erb within layouts/application (18.8ms)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <%= @category.name %>
+    2: 
+    3: <%= @category.content %>
+  
+app/views/categories/_category.html.erb:1:in `_app_views_categories__category_html_erb__939670787_84553540'
+app/views/categories/index.html.erb:3:in `_app_views_categories_index_html_erb__630989924_84465780'
+Started GET "/categories" for ::1 at 2020-03-28 22:18:46 +0900
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" LIMIT ?[0m  [["LIMIT", 11]]
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered collection of categories/_category.html.erb [1 times] (13.7ms)
+  Rendered categories/index.html.erb within layouts/application (30.1ms)
+Completed 500 Internal Server Error in 13877ms (ActiveRecord: 3.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <%= @category.name %>
+    2: 
+    3: <%= @category.content %>
+  
+app/views/categories/_category.html.erb:1:in `_app_views_categories__category_html_erb__939670787_71175500'
+app/views/categories/index.html.erb:3:in `_app_views_categories_index_html_erb__630989924_70923340'
+Started GET "/categories" for ::1 at 2020-03-28 22:20:28 +0900
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered collection of categories/_category.html.erb [1 times] (34.6ms)
+  Rendered categories/index.html.erb within layouts/application (222.7ms)
+Completed 500 Internal Server Error in 276ms (ActiveRecord: 4.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `content' for #<Category:0x000000000969ac68>):
+    1: <%= category.name %>
+    2: 
+    3: <%= category.content %>
+  
+app/views/categories/_category.html.erb:3:in `_app_views_categories__category_html_erb__939670787_78985320'
+app/views/categories/index.html.erb:3:in `_app_views_categories_index_html_erb__630989924_73018800'
+Started GET "/categories" for ::1 at 2020-03-28 22:20:37 +0900
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered collection of categories/_category.html.erb [1 times] (0.5ms)
+  Rendered categories/index.html.erb within layouts/application (13.1ms)
+  Rendered layouts/_side_bar.html.erb (0.6ms)
+Completed 200 OK in 1555ms (Views: 1548.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/categories" for ::1 at 2020-03-28 22:21:22 +0900
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lilNFycSEouaWyL0xGfqIDeTDFUrIJZDG0iwHBYVwPgPPUIojWDFmiyWzoMOeAeI5zoddV/dPQDqygjhBAtscA==", "category"=>{"name"=>"生活"}, "commit"=>"保存"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 18ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/categories" for ::1 at 2020-03-28 22:21:22 +0900
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered collection of categories/_category.html.erb [1 times] (5.2ms)
+  Rendered categories/index.html.erb within layouts/application (16.5ms)
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"categories"}, missing required keys: [:id]):
+    1: <%= link_to category_path do%>
+    2: 
+    3: <%= category.name %>
+    4: 
+  
+app/views/categories/_category.html.erb:1:in `_app_views_categories__category_html_erb__939670787_127082220'
+app/views/categories/index.html.erb:3:in `_app_views_categories_index_html_erb__630989924_127025540'
+Started GET "/categories" for ::1 at 2020-03-28 22:22:03 +0900
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered collection of categories/_category.html.erb [1 times] (0.8ms)
+  Rendered categories/index.html.erb within layouts/application (8.5ms)
+  Rendered layouts/_side_bar.html.erb (0.5ms)
+Completed 200 OK in 212ms (Views: 204.1ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/categories" for ::1 at 2020-03-28 22:22:37 +0900
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lilNFycSEouaWyL0xGfqIDeTDFUrIJZDG0iwHBYVwPgPPUIojWDFmiyWzoMOeAeI5zoddV/dPQDqygjhBAtscA==", "category"=>{"name"=>"生活"}, "commit"=>"保存"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 146ms (ActiveRecord: 9.0ms)
+
+
+Started GET "/categories" for ::1 at 2020-03-28 22:22:38 +0900
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (3.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered collection of categories/_category.html.erb [1 times] (2.5ms)
+  Rendered categories/index.html.erb within layouts/application (51.5ms)
+  Rendered layouts/_side_bar.html.erb (0.6ms)
+Completed 200 OK in 560ms (Views: 546.2ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/categories" for ::1 at 2020-03-28 22:22:50 +0900
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lilNFycSEouaWyL0xGfqIDeTDFUrIJZDG0iwHBYVwPgPPUIojWDFmiyWzoMOeAeI5zoddV/dPQDqygjhBAtscA==", "category"=>{"name"=>"生活"}, "commit"=>"保存"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (4.6ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "生活"], ["created_at", "2020-03-28 13:22:50.473434"], ["updated_at", "2020-03-28 13:22:50.473434"]]
+  [1m[35m (5.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 72ms (ActiveRecord: 14.3ms)
+
+
+Started GET "/categories" for ::1 at 2020-03-28 22:22:50 +0900
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (1.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered collection of categories/_category.html.erb [2 times] (1.7ms)
+  Rendered categories/index.html.erb within layouts/application (16.1ms)
+  Rendered layouts/_side_bar.html.erb (0.4ms)
+Completed 200 OK in 221ms (Views: 208.7ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/categories" for ::1 at 2020-03-28 22:24:35 +0900
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lilNFycSEouaWyL0xGfqIDeTDFUrIJZDG0iwHBYVwPgPPUIojWDFmiyWzoMOeAeI5zoddV/dPQDqygjhBAtscA==", "category"=>{"name"=>"生活"}, "commit"=>"保存"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 42ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/categories" for ::1 at 2020-03-28 22:24:35 +0900
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered collection of categories/_category.html.erb [2 times] (3.9ms)
+  Rendered categories/index.html.erb within layouts/application (12.5ms)
+  Rendered layouts/_side_bar.html.erb (0.4ms)
+Completed 200 OK in 235ms (Views: 229.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/categories" for ::1 at 2020-03-28 22:24:43 +0900
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lilNFycSEouaWyL0xGfqIDeTDFUrIJZDG0iwHBYVwPgPPUIojWDFmiyWzoMOeAeI5zoddV/dPQDqygjhBAtscA==", "category"=>{"name"=>"fka"}, "commit"=>"保存"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 5ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/categories" for ::1 at 2020-03-28 22:24:43 +0900
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered collection of categories/_category.html.erb [2 times] (4.7ms)
+  Rendered categories/index.html.erb within layouts/application (12.7ms)
+  Rendered layouts/_side_bar.html.erb (0.6ms)
+Completed 200 OK in 208ms (Views: 202.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/categories" for ::1 at 2020-03-28 22:26:25 +0900
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lilNFycSEouaWyL0xGfqIDeTDFUrIJZDG0iwHBYVwPgPPUIojWDFmiyWzoMOeAeI5zoddV/dPQDqygjhBAtscA==", "category"=>{"name"=>"ｆかｊ"}, "commit"=>"保存"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "ｆかｊ"], ["created_at", "2020-03-28 13:26:25.604643"], ["updated_at", "2020-03-28 13:26:25.604643"]]
+  [1m[35m (10.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 45ms (ActiveRecord: 15.2ms)
+
+
+Started GET "/categories" for ::1 at 2020-03-28 22:26:25 +0900
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered collection of categories/_category.html.erb [3 times] (5.6ms)
+  Rendered categories/index.html.erb within layouts/application (244.2ms)
+  Rendered layouts/_side_bar.html.erb (0.7ms)
+Completed 200 OK in 988ms (Views: 974.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories/2" for ::1 at 2020-03-28 22:26:29 +0900
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `call' for #<Class:0x000000000ee5a3e0>
+Did you mean?  all):
+  
+app/controllers/categories_controller.rb:7:in `show'
+Started GET "/categories/2" for ::1 at 2020-03-28 22:27:14 +0900
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering categories/show.html.erb within layouts/application
+  Rendered categories/show.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_side_bar.html.erb (0.7ms)
+Completed 200 OK in 453ms (Views: 416.6ms | ActiveRecord: 5.7ms)
+
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddBlogIdsToCategories (20200328221546)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (5.3ms)[0m  [1m[35mALTER TABLE "categories" ADD "blog_id" integer[0m
+  [1m[35mSQL (8.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200328221546"]]
+  [1m[35m (66.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (5.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/categories/2" for ::1 at 2020-03-29 07:18:59 +0900
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 120ms (ActiveRecord: 2.9ms)
+
+
+  
+NoMethodError (undefined method `blogs' for #<Category:0x0000000006a142e8>
+Did you mean?  blog_id):
+  
+app/controllers/categories_controller.rb:8:in `show'
+Started GET "/categories/2" for ::1 at 2020-03-29 07:19:30 +0900
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 83ms (ActiveRecord: 4.0ms)
+
+
+  
+NoMethodError (undefined method `blogs' for #<Category:0x00000000099370e8>
+Did you mean?  blog
+               blog=):
+  
+app/controllers/categories_controller.rb:8:in `show'
+Started GET "/categories/2" for ::1 at 2020-03-29 07:21:50 +0900
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering categories/show.html.erb within layouts/application
+  Rendered categories/show.html.erb within layouts/application (6.3ms)
+Completed 500 Internal Server Error in 132ms (ActiveRecord: 4.2ms)
+
+
+  
+ActionView::Template::Error ('nil' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+    1: <h1><%= @category.name%></h1>
+    2: 
+    3: 
+    4: <%= render @blogs %>
+  
+app/views/categories/show.html.erb:4:in `_app_views_categories_show_html_erb__51957608_44342280'
+Started GET "/categories/2" for ::1 at 2020-03-29 07:22:07 +0900
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 85ms (ActiveRecord: 9.6ms)
+
+
+  
+NoMethodError (undefined method `blogs' for #<Category:0x0000000009886298>
+Did you mean?  blog
+               blog=):
+  
+app/controllers/categories_controller.rb:8:in `show'
+Started GET "/categories/2" for ::1 at 2020-03-29 07:24:45 +0900
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 27983ms (ActiveRecord: 5.2ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `show'
+app/controllers/categories_controller.rb:9:in `show'
+Started GET "/categories/2" for ::1 at 2020-03-29 07:27:26 +0900
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCategory Load (10.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mBlog Load (2.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."category_id" = ?[0m  [["category_id", 2]]
+  Rendered categories/show.html.erb within layouts/application (141.5ms)
+Completed 500 Internal Server Error in 931ms (ActiveRecord: 54.9ms)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: blogs.category_id: SELECT "blogs".* FROM "blogs" WHERE "blogs"."category_id" = ?):
+    1: <h1><%= @category.name%></h1>
+    2: 
+    3: 
+    4: <%= render @blogs %>
+  
+app/views/categories/show.html.erb:4:in `_app_views_categories_show_html_erb__51957608_79968100'
