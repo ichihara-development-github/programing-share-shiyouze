@@ -1,7 +1,7 @@
 <div class="side-bar middle pd">
   <div class="center" , style = "background-color: white>
     <img src="https://purchase-app-backet.s3.amazonaws.com/uploads/user-default.png" class="img-thumbnail" style="width: 200px; border-radius: 1000px" alt="Something">
-    <%= link_to about_path do %><h3><%= current_user.name %></h3><% end %>
+    <%= link_to about_path do %><h3><%= current_user.name if current_user %></h3><% end %>
   </div>
   <div class="icon-links center">
     <ul>
