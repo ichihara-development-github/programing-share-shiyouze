@@ -5,7 +5,6 @@ class CreateCategories < ActiveRecord::Migration[5.1]
       t.string :description
       t.string :image
       t.references :article, foreign_key: true
-
       t.timestamps
     end
   end

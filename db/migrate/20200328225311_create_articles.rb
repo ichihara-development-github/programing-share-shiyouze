@@ -4,8 +4,6 @@ class CreateArticles < ActiveRecord::Migration[5.1]
       t.string :title
       t.string :content
       t.string :thumbnail_image
-      t.references :category, foreign_key: true
-
       t.timestamps
     end
   end
