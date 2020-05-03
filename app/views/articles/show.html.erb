@@ -1,8 +1,7 @@
+<div class="pd", style = "background-color: rgb(300,300,300);">
+  <div class="article-display">
 
-<div class="">
-  <div class="article-display pd">
-
-    <h2 class = "center"><%= @article.title %></h2>
+    <h1 class = "center pd"><%= @article.title %></h1>
 
     <div class="margin-vertical">
       <%= image_tag "articles/#{@article.thumbnail_image}", class: "w-100" %>
@@ -11,18 +10,21 @@
       <%= markdown(@article.content) %>
     </div>
 
+    </div>
+
     <div class="margin-vertical", style = "height:50px">
-      <h6>カテゴリー</h6>
       <%= render @article.categories %>
     </div>
+    <span class = "right"><%= l @article.created_at %></span>
     <%= render "shared/actions", obj: @article, action: "article" %>
-
-    </div>
+  </div>
 
     <div class="relational-articles margin-vertical">
       <h2>関連記事</h2>
+      <% if @relational_articles %>
+
         <% @relational_articles.each do |article| %>
         <%= render "parrarel_article", article: article %>
         <% end %>
+        <% end %>
       </div>
-</div>

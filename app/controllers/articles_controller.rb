@@ -2,12 +2,15 @@ class ArticlesController < ApplicationController
 
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
+
+  PER = 12
+
   def set_article
     @article = Article.find(params[:id])
   end
 
   def index
-    @articles = Article.page(params[:page]).per(18)
+    @articles = Article.page(params[:page]).per(PER)
     @parrarel_articles = Article.limit(5)
   end
 
@@ -35,15 +38,17 @@ class ArticlesController < ApplicationController
       else
         @article.update(thumbnail_image: "default.jpg" )
       end
-      redirect_to articles_path
+      redirect_to article_path(@article)
     else
       render :new
     end
   end
 
   def show
-    category = @article.categories.shuffle.first
-    @relational_articles = Category.find(category[:id]).articles
+    if category = @article.categories.shuffle.first
+      @relational_articles = Category.find(category[:id]).articles
+    end
+
   end
 
   def edit
@@ -60,12 +65,23 @@ class ArticlesController < ApplicationController
       end
       redirect_to article_path(@article)
     else
-      render :edit
+      render :new
     end
   end
 
   def destroy
     @article.destroy
+    redirect_to articles_path
+  end
+
+  def search
+    if params[:content].blank?
+      redirect_to articles_path
+    else
+      @articles = Article.search(params[:content]).page(params[:page]).per(PER)
+      @parrarel_articles = Article.limit(5)
+      @articles.blank? ? redirect_to(articles_path) : render("index")
+    end
   end
 
   private

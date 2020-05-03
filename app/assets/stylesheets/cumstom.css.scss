@@ -18,6 +18,7 @@ li{
   font-weight: bold;
 }
 
+
 .slide-toggle{
   &:hover{
     cursor: pointer;
@@ -64,9 +65,13 @@ li{
     margin: 15px 0;
 }
 
+.mg-30{
+  margin: 30px 0;
+}
+
 
 nav{
-  background-color:#194a84;
+  background-color:orange;
   height:60px;
 }
 
@@ -80,7 +85,7 @@ nav{
 
 .nav-content{
   color:white;
-  font-weight:bold;
+  font-weight: lighter;
   font-size:20px;
 
   %hover{
@@ -91,9 +96,14 @@ nav{
   margin-right:10px;
   max-width:200px;
   padding:5px;
-  background-color: #c3d825 ;
-  border-radius: 3px;
+  margin:5px;
+  border: solid 1.5px rgb(80,80,80);
+  border-radius: 5px;
   color: gray;
+
+  &:hover{
+    background-color: rgb(180,180,180);
+  }
 }
 
 .side-bar{
@@ -104,7 +114,7 @@ nav{
 .side-bar-item{
   width:100%;
   padding: 10px 20px;
-  background-color: #194a84;
+  background-color: orange;
   color: white;
   font: {
     size: 20px;
@@ -129,9 +139,32 @@ nav{
 }
 
 .article-display{
-  background-color: rgb(280,280,280);
+  line-height: 40px;color: rgb(210,210,210);
+  color: rgb(80,80,80);
   font:{
-    size:18px;}
+    size:18px;
+    weight: normal;
+  }
+
+  h2{
+    border-left: solid 5px orange;
+    padding:20px;
+    margin: 50px 0;
+    background-color:rgb(250,250,250);
+    font-weight: bold;
+  }
+
+  h3{
+    border-left: solid 5px skyblue;
+    padding-left: 20px;
+    margin: 30px 0;
+    font-weight: bold;
+  }
+
+  ul{
+    border: dashed 2px royalblue;
+    background-color: rgb(250,250,270);
+  }
 }
 
 .parrarel_article{
@@ -141,19 +174,4 @@ nav{
 
 .parrarel_article_image{
   height:150px;
-}
-.pagination>li>a {
-  border: none;     /*枠線をなくす*/
-  color: #696969;   /*文字の色を変える*/
-}
-
-/* 表示しているページ番号のデザイン */
-.pagination>.active>a {
-  background: #93c9ff;     /*背景の色を変える*/
-  border-radius: 15px;     /*角を丸くする*/
-}
-
-/*ホバー時のデザイン*/
-.pagination>li>a:hover {
-  border-radius: 15px;    /*角を丸くする*/
 }

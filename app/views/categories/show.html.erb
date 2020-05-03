@@ -3,9 +3,8 @@
     <%= image_tag "categories/#{@category.image}",style: "height: 200px" %>
     <h1><%= @category.name %></h1>
     <p><%= @category.description %></p>
-
     <div class="">
-     <%= render "shared/actions", obj: @category, action: "category" %>
+      <%= render "shared/actions", obj: @category, action: "category" if current_user %>
     </div>
   </div>
 
@@ -13,7 +12,7 @@
 
 <div class="row">
   <% @articles.each do |article| %>
-    <%= render "articles/article", article: article %>
+    <%= render "articles/article", article: article%>
   <% end %>
 </div>
 

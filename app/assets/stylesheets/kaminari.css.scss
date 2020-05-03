@@ -1,0 +1,29 @@
+// paginate
+.pagination{
+  float: right;
+  width: 50%;
+  height:50px;
+  display: flex;
+  justify-content: flex-start;
+
+}
+.pagination span{
+  border-radius: 2px;
+  text-align: center;
+  line-height: 50px;
+  width: 100px;
+  border: solid 1px white;
+  color: white;
+  transition: .3s;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+
+  a{
+    color: white;
+  }
+}
+.pagination span a:hover{
+  transition: .3s;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}

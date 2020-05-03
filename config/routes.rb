@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'group_index', to: 'articles#group_index'
   get 'latest_article', to: 'articles#latest_article'
 
+  get 'search', to: 'articles#search'
+
   resources :articles
   resources :categories
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

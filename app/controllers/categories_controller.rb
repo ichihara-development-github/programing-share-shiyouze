@@ -20,7 +20,7 @@ class CategoriesController < ApplicationController
       else
         @category.update(image: "default.jpg")
       end
-      redirect_to "show"
+      redirect_to category_path(@category)
     else
       render "edit"
     end
@@ -39,11 +39,12 @@ class CategoriesController < ApplicationController
 
   def update
     @articles.update(category_params)
-    redirect_to back
+    redirect_to :back
   end
 
   def destroy
     @category.destroy
+    redirect_to :back
   end
 
 private

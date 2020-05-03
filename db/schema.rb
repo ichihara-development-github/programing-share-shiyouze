@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200411004755) do
+ActiveRecord::Schema.define(version: 20200423142946) do
 
   create_table "accesses", force: :cascade do |t|
     t.string "count"
@@ -37,6 +37,15 @@ ActiveRecord::Schema.define(version: 20200411004755) do
     t.string "name"
     t.string "description"
     t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

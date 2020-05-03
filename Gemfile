@@ -9,7 +9,10 @@ gem 'jquery-rails'
 gem 'bootstrap'
 gem 'redcarpet'
 gem 'coderay'
+gem 'rouge'
 gem 'kaminari'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
 
 gem 'bcrypt'
 
