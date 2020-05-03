@@ -1,14 +1,12 @@
-<div class="side-bar middle pd">
-  <div class="center" , style = "background-color: white>
-    <img src="https://purchase-app-backet.s3.amazonaws.com/uploads/user-default.png" class="img-thumbnail" style="width: 200px; border-radius: 1000px" alt="Something">
+<div class="side-bar middle">
+
+  <div class="pd" style = "background-color: white">
+  <div class="center">
+    <img src="https://purchase-app-backet.s3.amazonaws.com/uploads/user-default.png" class="img-thumbnail" style="width: 70%; border-radius: 1000px" alt="Something">
     <%= link_to about_path do %><h3><%= current_user.name if current_user %></h3><% end %>
   </div>
   <div class="icon-links center">
-    <ul>
-      <li class = ""><a href = "https://github.com/ichihara-development-github"><span class = "fab fa-github fa-2x"></span></a></li>
-      <li class = "pd"><a href = ""><span class = "fab fa-twitter fa-2x"></span></a></li>
-      <li class = ""><a href = ""><span class = "fab fa-youtube fa-2x"></span></a></li>
-    </ul>
+
   </div>
   <div class="">
     <ul class = "navbar-nav">
@@ -30,7 +28,9 @@
     </ul>
     </div>
 
-    <div class="side-bar pd" style = "background-color: white; margin-top: 10px">
+    </div>
+
+    <div class="side-bar" style = "background-color: white; margin-top: 10px">
       <%= form_tag search_path, method: :get do%>
       <div class="row center">
       <div class="col-8">
